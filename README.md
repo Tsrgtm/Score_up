@@ -26,7 +26,7 @@ The project is hosted at: [tsrgtm.tech](https://tsrgtm.tech)
 ## Installation (For Local Development)  
 1. Clone the repository:  
    ```sh
-   git clone https://github.com/yourusername/score-up.git
+   git clone https://github.com/tsrgtm/Score_up.git
    cd score-up
    ```
 2. Install dependencies (if Laravel or Node.js is used):  
