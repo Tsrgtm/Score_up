@@ -20,7 +20,7 @@
             <x-dropdown class="relative">
                 <x-slot name="trigger">
                     <button class="text-slate-600 flex items-center hover:bg-gray-100 rounded-md shadow-none transition-all duration-300 group">
-                        <x-avatar search="{{ auth()->user()->name }}" provider="gravatar" class="w-8 h-8 border border-gray-200 rounded-md" />
+                        <x-avatar search="{{ auth()->user()->name }}" class="w-8 h-8 border border-gray-200 rounded-md" />
                         <div class="flex items-center py-2 px-1 group-hover:border-gray-200">
                             <x-heroicon-o-chevron-down class="w-4 h-4" />
                         </div>
