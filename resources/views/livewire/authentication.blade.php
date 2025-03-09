@@ -62,18 +62,29 @@
         @error('password') <span class="text-red-500 mt-1">{{ $message }}</span> @enderror
     </div>
 
-    @if ($action == 'login')
-        <div class="mt-4 flex gap-4 justify-between items-center">
+    <div class="mt-4">
+        @if ($action == 'login')
             <div class="flex items-center gap-2">
                 <input type="checkbox" name="remember" id="remember" wire:model="remember" class="w-4 h-4 p-1 rounded border-gray-300 bg-transparent accent-amber-400">
                 <label for="remember" class="text-sm text-gray-600">Remember me</label>
             </div>
+        @elseif ($action == 'register')
+            <div class="flex items-center gap-2">
+                <input type="checkbox" name="terms" id="terms" wire:model="terms" class="w-4 h-4 p-1 rounded border-gray-300 bg-transparent accent-amber-400">
+                <label for="terms" class="text-sm text-gray-600">
+                    I agree to the 
+                    <a href="#" class="text-amber-600 hover:text-amber-800 hover:underline">Privacy Policy</a>
+                    and 
+                    <a href="#" class="text-amber-600 hover:text-amber-800 hover:underline">Terms & conditions</a>
+                </label>
+            </div>
+            @error('terms')<span class="text-red-500 mt-1">{{ $message }}</span>@enderror
+        @endif
 
-            {{-- @if (Route::has('password.request'))
-                <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-gray-800 hover:underline">Forgot Password?</a>
-            @endif --}}
-        </div> 
-    @endif
+        {{-- @if (Route::has('password.request'))
+            <a href="{{ route('password.request') }}" class="text-sm text-gray-600 hover:text-gray-800 hover:underline">Forgot Password?</a>
+        @endif --}}
+    </div> 
 
     <div class="mt-8">
         <button 
@@ -124,18 +135,16 @@
 
     <!-- Login with Facebook Button -->
     <div class="flex gap-3 items-center">
-        <button 
-            type="button" 
+        <a href="{{ route('socialite.redirect', 'facebook') }}"
             class="w-full bg-blue-600 text-white p-2 rounded-lg flex items-center justify-center gap-3 hover:bg-blue-700 transition cursor-pointer">
             <i class="fab fa-facebook-f h-full"></i>
             Facebook
-        </button>
-        <button 
-            type="button" 
+        </a>
+        <a href="{{ route('socialite.redirect', 'google') }}"
             class="w-full bg-red-600 text-white p-2 rounded-lg flex items-center justify-center gap-3 hover:bg-red-700 transition cursor-pointer">
             <i class="fab fa-google h-full"></i>
             Google
-        </button>
+        </a>
     </div>
 
 </div>

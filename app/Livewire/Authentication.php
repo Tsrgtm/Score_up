@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Session;
 
 class Authentication extends Component
 {
-    public $email, $password, $name;
+    public $email, $password, $name, $terms = true;
     public $remember = false;
     public $action;
 
@@ -91,6 +91,7 @@ class Authentication extends Component
             'name' => 'required|string|max:255',
             'email' => 'required|email|unique:users,email',
             'password' => 'required|string|min:6',
+            'terms' => 'accepted',
         ]);
 
         $user = User::create([
