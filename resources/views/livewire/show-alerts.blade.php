@@ -1,4 +1,4 @@
-<div class="fixed top-10 right-4 space-y-2 z-99">
+<div class="fixed top-10 right-4 ml-4 space-y-2 z-99">
     @foreach ($alerts as $index => $alert)
         <div
             x-data="{ show: true }"
@@ -9,7 +9,7 @@
             x-transition:leave="transition ease-in duration-300 transform"
             x-transition:leave-start="opacity-100 translate-x-0"
             x-transition:leave-end="opacity-0 translate-x-10"
-            class="px-4 py-3 border flex items-start justify-between w-full max-w-sm rounded-lg shadow-lg"
+            class="px-4 py-3 border flex items-start justify-between w-auto max-w-sm rounded-lg shadow-lg"
             :class="{
                 'bg-green-200 border-green-600 text-green-700': '{{ $alert['type'] }}' === 'success',
                 'bg-red-200 border-red-600 text-red-700': '{{ $alert['type'] }}' === 'danger',
@@ -58,7 +58,7 @@
                 x-transition:leave="transition ease-in duration-300 transform"
                 x-transition:leave-start="opacity-100 translate-x-0"
                 x-transition:leave-end="opacity-0 translate-x-10"
-                class="fixed bottom-4 right-4 px-4 py-3 border flex items-start justify-between w-full max-w-sm rounded-lg shadow-lg"
+                class="fixed top-10 right-4 ml-4 px-4 py-3 border flex items-start justify-between w-auto max-w-sm rounded-lg shadow-lg"
                 :class="{
                     'bg-green-200 border-green-600 text-green-700': '{{ $type }}' === 'success',
                     'bg-red-200 border-red-600 text-red-700': '{{ $type }}' === 'error',
