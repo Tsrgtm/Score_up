@@ -10,9 +10,9 @@
     <div class="hidden lg:flex gap-12 items-center">
         <nav>
             <ul class="flex gap-6 text-xl">
+                <li><a href="{{ route('home') }}" class="text-slate-500 hover:text-slate-800 hover:underline">Home</a></li>
                 <li><a href="#" class="text-slate-500 hover:text-slate-800 hover:underline">Features</a></li>
                 <li><a href="#" class="text-slate-500 hover:text-slate-800 hover:underline">Pricing</a></li>
-                <li><a href="#" class="text-slate-500 hover:text-slate-800 hover:underline">Courses</a></li>
                 <li><a href="#" class="text-slate-500 hover:text-slate-800 hover:underline">Resources</a></li>
             </ul>
         </nav>
@@ -26,19 +26,37 @@
                         </div>
                     </button>
                 </x-slot>
-                <div class="absolute right-0 mt-2 w-max bg-white border border-gray-200 rounded-md shadow overflow-hidden">
-                    <a href="#" class="flex gap-3 px-4 py-2 text-gray-700 hover:bg-amber-100 hover:text-amber-600 transition-all duration-300">
+                <div x-cloak class="absolute right-0 mt-2 w-48 bg-amber-100/90 backdrop-blur-3xl border border-gray-200 rounded-lg overflow-hidden">
+                    <div class="p-2">
+                        <div class="flex items-center gap-2">
+                            <x-avatar search="{{ auth()->user()->name }}" class="w-10 h-10 border border-gray-200 rounded-full" />
+                            <div>
+                                <p class="font-medium text-gray-700 turnicate">{{ auth()->user()->name }}</p>
+                                <p class="text-xs text-gray-600 turnicate">{{ encryptEmail(auth()->user()->email) }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <hr class="border-gray-300">
+                    <a href="{{ route('dashboard') }}" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
                         <x-heroicon-o-squares-2x2 class="w-5 h-5" />
                         Go to app
                     </a>
-                    <a href="#" class="flex gap-3 px-4 py-2 text-gray-700 hover:bg-amber-100 hover:text-amber-600 transition-all duration-300">
+                    <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
                         <x-heroicon-o-user class="w-5 h-5" />
-                        Profile
+                        My profile
                     </a>
-                    <form action="{{ route('logout') }}" method="POST">
+                    <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
+                        <x-heroicon-o-credit-card class="w-5 h-5" />
+                        Subscriptions
+                    </a>
+                    <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
+                        <x-heroicon-o-cog class="w-5 h-5" />
+                        Settings
+                    </a>
+                    <hr class="border-gray-300">
+                    <form action="{{ route('logout') }}" method="POST" class="p-2">
                         @csrf
-                        <button type="submit" class="flex gap-3 px-4 py-2 w-full text-gray-700 hover:bg-red-500 hover:text-gray-100 transition-all duration-300 cursor-pointer">
-                            <x-heroicon-o-arrow-left-start-on-rectangle class="w-5 h-5" />
+                        <button type="submit" class="flex items-center justify-center rounded-lg px-4 py-2 w-full bg-red-500 hover:bg-red-600 text-gray-100 transition-all duration-300 cursor-pointer">
                             Logout
                         </button>
                     </form>

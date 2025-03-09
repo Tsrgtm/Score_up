@@ -1,210 +1,86 @@
-<!-- resources/views/dashboard.blade.php -->
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>English Test Practice - Dashboard</title>
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
-</head>
-<body class="bg-white font-sans antialiased">
-    <div class="flex h-screen">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}" data-theme="light">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>@yield('title', 'Practice Dashboard')</title>
+
+        <link rel="preconnect" href="https://fonts.bunny.net">
+        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+        @vite(['resources/css/app.css', 'resources/js/app.js'])
+        @livewireStyles
+    </head>
+    <body class="min-h-screen flex">
         <!-- Sidebar -->
-        <div x-data="{ open: false, practiceOpen: false, analyticsOpen: false, communityOpen: false, accountOpen: false }" 
-             class="fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-100 transform transition-transform duration-300 ease-in-out md:relative md:translate-x-0" 
-             :class="{ '-translate-x-full': !open }">
-            <div class="flex items-center justify-between p-4 border-b border-gray-100">
-                <h2 class="text-xl font-semibold text-amber-800">TestMaster</h2>
-                <button @click="open = false" class="md:hidden">
-                    <x-heroicon-o-x-mark class="w-6 h-6 text-gray-500" />
-                </button>
-            </div>
-            <nav class="p-4">
-                <ul class="space-y-2">
-                    <!-- Dashboard -->
-                    <li>
-                        <a href="#" class="flex items-center p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded">
-                            <x-heroicon-o-home class="w-5 h-5 mr-3" />
+        <aside class="w-64 bg-amber-50 border-r border-gray-200  p-4 flex flex-col justify-between">
+            <div>
+                <div class="flex gap-3">
+                    <h1 class="text-2xl font-bold text-slate-700">Logo</h1>
+                </div>
+
+                <div class="mt-8">
+                    <ul class="space-y-2 text-gray-800 text-lg">
+                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-100 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
+                            <x-heroicon-o-squares-2x2 class="w-5 h-5" />
                             Dashboard
-                        </a>
-                    </li>
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-100 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
+                            <x-heroicon-o-book-open class="w-5 h-5" />
+                            Practice
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-100 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
+                            <x-heroicon-o-chart-bar class="w-5 h-5" />
+                            Progress
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-100 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
+                            <x-heroicon-o-academic-cap class="w-5 h-5" />
+                            Lessions
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-100 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
+                            <x-heroicon-o-clipboard class="w-5 h-5" />
+                            Mock Tests
+                        </a></li>
+                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-100 hover:border-amber-400  transition-all duration-300">
+                            <x-heroicon-o-folder-open class="w-5 h-5" />
+                            Resources
+                        </a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 bg-amber-100 p-4 flex flex-col gap-2 border border-amber-400 rounded-lg text-center">
+                <h2 class="text-lg font-bold">#1 Practice platform</h2>
+                <p class="text-sm text-gray-600">Enjoy unlimited practice to boost your skills</p>
+                <a href="{{ route('register') }}" class="text-slate-600 mt-2 border border-amber-500 hover:bg-amber-600 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg transition-all duration-300">
+                    <i class="fa-solid fa-crown mr-2"></i>
+                    Upgrade Now
+                </a>
 
-                    <!-- Practice Dropdown -->
-                    <li x-data="{ open: false }">
-                        <button @click="practiceOpen = !practiceOpen" class="flex items-center justify-between w-full p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded">
-                            <div class="flex items-center">
-                                <x-heroicon-o-book-open class="w-5 h-5 mr-3" />
-                                Practice
-                            </div>
-                            <x-heroicon-o-chevron-down class="w-4 h-4" />
-                        </button>
-                        <div x-show="practiceOpen" class="pl-8 mt-1 space-y-1">
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Tests</a>
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Lessons</a>
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Quizzes</a>
-                        </div>
-                    </li>
-
-                    <!-- Analytics Dropdown -->
-                    <li x-data="{ open: false }">
-                        <button @click="analyticsOpen = !analyticsOpen" class="flex items-center justify-between w-full p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded">
-                            <div class="flex items-center">
-                                <x-heroicon-o-chart-bar class="w-5 h-5 mr-3" />
-                                Analytics
-                            </div>
-                            <x-heroicon-o-chevron-down class="w-4 h-4" />
-                        </button>
-                        <div x-show="analyticsOpen" class="pl-8 mt-1 space-y-1">
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Results</a>
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Progress</a>
-                        </div>
-                    </li>
-
-                    <!-- Community Dropdown -->
-                    <li x-data="{ open: false }">
-                        <button @click="communityOpen = !communityOpen" class="flex items-center justify-between w-full p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded">
-                            <div class="flex items-center">
-                                <x-heroicon-o-users class="w-5 h-5 mr-3" />
-                                Community
-                            </div>
-                            <x-heroicon-o-chevron-down class="w-4 h-4" />
-                        </button>
-                        <div x-show="communityOpen" class="pl-8 mt-1 space-y-1">
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Community</a>
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Forums</a>
-                        </div>
-                    </li>
-
-                    <!-- Account Dropdown -->
-                    <li x-data="{ open: false }">
-                        <button @click="accountOpen = !accountOpen" class="flex items-center justify-between w-full p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded">
-                            <div class="flex items-center">
-                                <x-heroicon-o-user class="w-5 h-5 mr-3" />
-                                Account
-                            </div>
-                            <x-heroicon-o-chevron-down class="w-4 h-4"/>
-                        </button>
-                        <div x-show="accountOpen" class="pl-8 mt-1 space-y-1">
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Profile</a>
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Settings</a>
-                            <a href="#" class="block p-2 text-gray-600 hover:text-amber-600 hover:bg-amber-50 rounded">Subscription</a>
-                        </div>
-                    </li>
-
-                    <!-- Support -->
-                    <li>
-                        <a href="#" class="flex items-center p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded">
-                            <x-heroicon-o-lifebuoy class="w-5 h-5 mr-3" />
-                            Support
-                        </a>
-                    </li>
-                    <!-- Logout -->
-                    <li>
-                        <a href="#" class="flex items-center p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50 rounded">
-                            <x-heroicon-o-arrow-right-on-rectangle class="w-5 h-5 mr-3" />
-                            Logout
-                        </a>
-                    </li>
-                </ul>
-            </nav>
-        </div>
+            </div>
+        </aside>
 
         <!-- Main Content -->
-        <div class="flex-1 flex flex-col overflow-hidden">
+        <main class="flex-1 p-2 bg-gray-100">
             <!-- Header -->
-            <header class="bg-white border-b border-gray-100 flex items-center justify-between p-4">
-                <div class="flex items-center">
-                    <button @click="open = true" class="md:hidden mr-4">
-                        <x-heroicon-o-bars-3 class="w-6 h-6 text-gray-500" />
-                    </button>
-                    <h1 class="text-xl font-semibold text-gray-800">Dashboard</h1>
-                </div>
+            <header class="p-4 mb-6 flex items-center justify-between">
+                <h1 class="text-2xl font-semibold text-gray-800">Dashboard</h1>
                 <div class="flex items-center space-x-4">
-                    <div class="relative">
-                        <x-heroicon-o-bell class="w-6 h-6 text-gray-500" />
-                        <span class="absolute top-0 right-0 w-2 h-2 bg-amber-500 rounded-full"></span>
-                    </div>
-                    <div x-data="{ profileOpen: false }" class="relative">
-                        <button @click="profileOpen = !profileOpen" class="flex items-center space-x-2">
-                            <img src="https://via.placeholder.com/40" alt="Profile" class="w-8 h-8 rounded-full">
-                            <span class="text-gray-700 hidden md:block">Student Name</span>
-                            <x-heroicon-o-chevron-down class="w-4 h-4 text-gray-500" />
-                        </button>
-                        <div x-show="profileOpen" @click.away="profileOpen = false" 
-                             class="absolute right-0 mt-2 w-48 bg-white border border-gray-100 rounded-lg shadow-lg">
-                            <a href="#" class="block p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50">Profile</a>
-                            <a href="#" class="block p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50">Settings</a>
-                            <a href="#" class="block p-2 text-gray-700 hover:text-amber-600 hover:bg-amber-50">Logout</a>
-                        </div>
+                    <span class="text-gray-600">Streak: 7 days 🔥</span>
+                    <div class="flex items-center space-x-2">
+                        <svg class="w-5 h-5 text-yellow-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 11c0-1.1.9-2 2-2s2 .9 2 2-2 4-2 4m0 0c0 1.1-.9 2-2 2s-2-.9-2-2m-6-3a4 4 0 118 0 4 4 0 01-8 0z" />
+                        </svg>
+                        <span class="font-medium text-gray-700">150 XP</span>
                     </div>
                 </div>
             </header>
 
-            <!-- Dashboard Content -->
-            <main class="flex-1 overflow-x-hidden overflow-y-auto p-6">
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <div class="bg-white p-4 rounded-lg border border-gray-100">
-                        <x-heroicon-o-book-open class="w-6 h-6 text-amber-500 mb-2" />
-                        <p class="text-sm text-gray-600">Tests Completed</p>
-                        <p class="text-xl font-semibold text-gray-800">12</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-100">
-                        <x-heroicon-o-star class="w-6 h-6 text-amber-500 mb-2" />
-                        <p class="text-sm text-gray-600">Average Score</p>
-                        <p class="text-xl font-semibold text-gray-800">85%</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-100">
-                        <x-heroicon-o-clock class="w-6 h-6 text-amber-500 mb-2" />
-                        <p class="text-sm text-gray-600">Time Spent</p>
-                        <p class="text-xl font-semibold text-gray-800">24h</p>
-                    </div>
-                    <div class="bg-white p-4 rounded-lg border border-gray-100">
-                        <x-heroicon-o-trophy class="w-6 h-6 text-amber-500 mb-2" />
-                        <p class="text-sm text-gray-600">Streak</p>
-                        <p class="text-xl font-semibold text-gray-800">7 days</p>
-                    </div>
-                </div>
+            @livewire('show-alerts')
 
-                <!-- Recent Activity -->
-                <div class="bg-white p-6 rounded-lg border border-gray-100">
-                    <div class="flex justify-between items-center mb-4">
-                        <h2 class="text-lg font-semibold text-gray-800">Recent Activity</h2>
-                        <a href="#" class="text-amber-600 hover:text-amber-700 text-sm">View All</a>
-                    </div>
-                    <div class="space-y-4">
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <x-heroicon-o-book-open class="w-5 h-5 text-amber-500 mr-3" />
-                                <span class="text-gray-700">Completed Practice Test 1</span>
-                            </div>
-                            <span class="text-sm text-gray-500">Mar 8, 2025</span>
-                        </div>
-                        <div class="flex items-center justify-between">
-                            <div class="flex items-center">
-                                <x-heroicon-o-academic-cap class="w-5 h-5 text-amber-500 mr-3" />
-                                <span class="text-gray-700">Finished Lesson: Grammar Basics</span>
-                            </div>
-                            <span class="text-sm text-gray-500">Mar 7, 2025</span>
-                        </div>
-                    </div>
-                </div>
+            
+        </main>
 
-                <!-- Quick Actions -->
-                <div class="mt-6 grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <button class="bg-amber-500 text-white p-4 rounded-lg hover:bg-amber-600 transition flex items-center justify-center">
-                        <x-heroicon-o-play class="w-5 h-5 mr-2" />
-                        Start Practice Test
-                    </button>
-                    <button class="bg-white border border-amber-500 text-amber-600 p-4 rounded-lg hover:bg-amber-50 transition flex items-center justify-center">
-                        <x-heroicon-o-chart-bar class="w-5 h-5 mr-2" />
-                        View Results
-                    </button>
-                </div>
-            </main>
-        </div>
-    </div>
-</body>
+        @livewireScripts
+    </body>
 </html>

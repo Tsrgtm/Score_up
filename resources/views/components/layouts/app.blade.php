@@ -13,7 +13,7 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="bg-white">
+    <body class="bg-amber-50">
         @livewire('show-alerts')
         @include('components.layouts.partials.header')
         <main class="min-h-[120vh]">
