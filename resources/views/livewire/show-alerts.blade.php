@@ -44,7 +44,7 @@
         </div>
     @endforeach
     @php
-        $alertTypes = ['success', 'danger', 'warning', 'info', 'light'];
+        $alertTypes = ['success', 'error', 'warning', 'info', 'light'];
     @endphp
 
     @foreach ($alertTypes as $type)
@@ -61,7 +61,7 @@
                 class="fixed bottom-4 right-4 px-4 py-3 border flex items-start justify-between w-full max-w-sm rounded-lg shadow-lg"
                 :class="{
                     'bg-green-200 border-green-600 text-green-700': '{{ $type }}' === 'success',
-                    'bg-red-200 border-red-600 text-red-700': '{{ $type }}' === 'danger',
+                    'bg-red-200 border-red-600 text-red-700': '{{ $type }}' === 'error',
                     'bg-orange-200 border-orange-600 text-orange-700': '{{ $type }}' === 'warning',
                     'bg-blue-200 border-blue-600 text-blue-700': '{{ $type }}' === 'info',
                     'bg-gray-200 border-gray-600 text-gray-700': '{{ $type }}' === 'light',
@@ -73,7 +73,7 @@
                     <i class="text-xl mt-1"
                         :class="{
                             'fas fa-check-circle text-green-600': '{{ $type }}' === 'success',
-                            'fas fa-exclamation-circle text-red-600': '{{ $type }}' === 'danger',
+                            'fas fa-exclamation-circle text-red-600': '{{ $type }}' === 'error',
                             'fas fa-exclamation-triangle text-orange-600': '{{ $type }}' === 'warning',
                             'fas fa-info-circle text-blue-600': '{{ $type }}' === 'info',
                             'fas fa-info-circle text-gray-600': '{{ $type }}' === 'light',
