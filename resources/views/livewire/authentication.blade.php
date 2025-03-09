@@ -8,6 +8,27 @@
     @endphp
 
     @section('auth-title', $title)
+
+    <!-- Login with Facebook Button -->
+    <div class="flex gap-3 items-center">
+        <a href="{{ route('socialite.redirect', 'google') }}"
+            class="w-full bg-white border border-gray-300 text-black p-2 rounded-lg flex items-center justify-center gap-3 hover:bg-gray-100 transition-all duration-300 cursor-pointer">
+            <img src="{{ asset('assets/icons/google.png') }}" alt="Google Logo" class="w-4 h-4">
+            Google
+        </a>
+        <a href="{{ route('socialite.redirect', 'github') }}"
+            class="w-full bg-black border border-black text-white p-2 rounded-lg flex items-center justify-center gap-3 hover:bg-gray-800 transition-all duration-300 cursor-pointer">
+            <i class="fab fa-github h-full"></i>
+            Github
+        </a>
+    </div>
+
+    <div class="my-6 flex items-center">
+        <div class="flex-grow border-t border-gray-300"></div>
+        <span class="mx-2 text-gray-600 text-xs">OR</span>
+        <div class="flex-grow border-t border-gray-300"></div>
+    </div>
+    
     @if ($action == 'register')
         <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
@@ -125,26 +146,6 @@
                 <a href="{{ route('login') }}" class="text-amber-600 hover:text-amber-800 hover:underline">Login</a>
             @endif
         </p>
-    </div>
-
-    <div class="my-6 flex items-center">
-        <div class="flex-grow border-t border-gray-300"></div>
-        <span class="mx-2 text-gray-600 text-xs">OR</span>
-        <div class="flex-grow border-t border-gray-300"></div>
-    </div>
-
-    <!-- Login with Facebook Button -->
-    <div class="flex gap-3 items-center">
-        <a href="{{ route('socialite.redirect', 'facebook') }}"
-            class="w-full bg-blue-600 text-white p-2 rounded-lg flex items-center justify-center gap-3 hover:bg-blue-700 transition cursor-pointer">
-            <i class="fab fa-facebook-f h-full"></i>
-            Facebook
-        </a>
-        <a href="{{ route('socialite.redirect', 'google') }}"
-            class="w-full bg-red-600 text-white p-2 rounded-lg flex items-center justify-center gap-3 hover:bg-red-700 transition cursor-pointer">
-            <i class="fab fa-google h-full"></i>
-            Google
-        </a>
     </div>
 
 </div>

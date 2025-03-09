@@ -14,6 +14,7 @@
         @livewireStyles
     </head>
     <body class="bg-white">
+        @livewire('show-alerts')
         @include('components.layouts.partials.header')
         <main class="min-h-[120vh]">
             @yield('content')

@@ -26,6 +26,7 @@
         </style>
     </head>
     <body class="bg-white transition-all duration-300">
+        @livewire('show-alerts')
         <main class="grid grid-cols-5 min-h-screen">
             <div id="tipContainer" class="relative col-span-2 w-full h-screen bg-gradient-to-b from-amber-400 to-amber-600 text-white shadow-lg transform transition-transform duration-300 mx-auto hidden lg:flex flex-col justify-center px-16">
                 <p class="font-semibold text-lg mb-8">#SOME QUICK TIPS</p>
