@@ -1,4 +1,13 @@
 <div>
+    @php
+        if ($action == 'login') {
+            $title = "Welcome Back, Let's Dive In!";
+        } elseif ($action == 'register') {
+            $title = "Let's Get Started, Register Now!";
+        }
+    @endphp
+
+    @section('auth-title', $title)
     @if ($action == 'register')
         <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-600">Name</label>
@@ -109,7 +118,7 @@
 
     <div class="my-6 flex items-center">
         <div class="flex-grow border-t border-gray-300"></div>
-        <span class="mx-2 text-gray-600">or</span>
+        <span class="mx-2 text-gray-600 text-xs">OR</span>
         <div class="flex-grow border-t border-gray-300"></div>
     </div>
 

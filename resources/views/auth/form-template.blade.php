@@ -51,7 +51,7 @@
                         Back Home
                     </a>
                 </div>
-                <div class="px-4 py-24 max-w-sm w-full mx-auto">
+                <div class="px-5 py-24 max-w-sm w-full mx-auto">
                     <div class="mb-8">
                         <h2 class="text-3xl font-bold">@yield('auth-title')</h2>
                     </div>

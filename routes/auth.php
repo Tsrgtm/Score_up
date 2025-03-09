@@ -11,6 +11,6 @@ Route::middleware('guest')->group(function () {
 Route::middleware('auth')->group(function () {
     Route::post('/logout', function () {
         auth()->logout();
-        return redirect()->route('login');
+        return redirect()->back();
     })->name('logout');
 });
