@@ -2,7 +2,7 @@
     x-data="{ scrolled: false }" 
     x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
     :class="scrolled ? 'py-4 shadow drop-shadow' : 'py-6 sm:py-12'"
-    class="flex items-center justify-between px-4 sm:px-12 lg:px-20 fixed w-full top-0 z-50 transition-all duration-300"
+    class="flex items-center justify-between px-4 sm:px-12 lg:px-20 fixed w-full top-0 z-50 backdrop-blur-3xl transition-all duration-300"
 >
     <a href="{{ route('home') }}">
         <h1 class="text-2xl font-bold text-slate-700">Logo</h1>
@@ -63,7 +63,7 @@
                 </div>
             </x-dropdown>
         @else
-            <div class="flex gap-4 items-center font-medium">
+            <div class="flex gap-4 items-center font-semibold">
                 <a href="{{ route('login') }}" class="text-slate-600 hover:text-slate-800 px-4 py-2 border border-amber-400 hover:bg-amber-100 hover:border-amber-500 rounded-lg transition-all duration-300">Login</a>
                 <a href="{{ route('register') }}" class="text-slate-600 border border-amber-500 hover:bg-amber-600 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white rounded-lg transition-all duration-300">Get Started</a>
             </div>

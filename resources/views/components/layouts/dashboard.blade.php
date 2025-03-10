@@ -13,6 +13,7 @@
         @livewireStyles
     </head>
     <body class="min-h-screen flex">
+        @livewire('show-alerts')
         <!-- Sidebar -->
         <aside class="w-64 bg-amber-50 border-r border-gray-200  p-4 flex flex-col justify-between">
             <div>
@@ -75,8 +76,6 @@
                     </div>
                 </div>
             </header>
-
-            @livewire('show-alerts')
 
             
         </main>
