@@ -10,6 +10,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;600;700&family=Merriweather:wght@400;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
 
+        <script src="https://kit.fontawesome.com/24f74c1771.js" crossorigin="anonymous"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
@@ -20,6 +21,7 @@
             @yield('content')
         </main>
 
+        @include('components.layouts.partials.footer')
         @livewireScripts
     </body>
 </html>
