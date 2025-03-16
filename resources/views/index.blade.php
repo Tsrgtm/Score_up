@@ -178,23 +178,23 @@
                     <p class="mt-4 text-gray-600 font-serif">Dip your toes into DET prep.</p>
                     <ul class="mt-6 space-y-3 text-gray-600 font-serif text-sm">
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
                             10 DET Practice Questions
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-x-circle class="w-5 h-5 text-red-500 mr-2" />
                             0 Mock Exam
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-x-mark class="w-5 h-5 text-red-500 mr-2" />
+                            <x-heroicon-o-x-circle class="w-5 h-5 text-red-500 mr-2" />
                             No Expert Feedback
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-x-mark class="w-5 h-5 text-red-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-gray-500 mr-2" />
                             Basic Analytics
                         </li>
                     </ul>
-                    <a href="{{ route('dashboard') }}" class="mt-6 inline-block w-full text-center bg-amber-100 border-2 border-amber-300 text-amber-600 px-4 py-2 rounded-lg font-sans font-semibold hover:bg-amber-200 hover:border-amber-400 transition-colors duration-200 shadow-md">
+                    <a href="{{ route('dashboard') }}" class="mt-6 inline-block w-full text-center bg-amber-100 text-amber-600 px-4 py-2 rounded-lg font-sans font-semibold hover:bg-amber-200 hover:border-amber-400 transition-colors duration-200 shadow-md">
                         Start Free
                     </a>
                 </div>
@@ -213,19 +213,19 @@
                     <p class="mt-4 text-gray-600 font-serif">A taste of premium prep.</p>
                     <ul class="mt-6 space-y-3 text-gray-600 font-serif text-sm">
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
-                            30 DET Practice Questions
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
+                            Unlimited DET Practice Questions
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
-                            1 Mock Exams
+                            <x-heroicon-o-x-circle class="w-5 h-5 text-red-500 mr-2" />
+                            0 Mock Exams
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-x-circle class="w-5 h-5 text-red-500 mr-2" />
                             0 Expert Feedback Session
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-x-mark class="w-5 h-5 text-red-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-gray-500 mr-2" />
                             Basic Analytics
                         </li>
                     </ul>
@@ -248,19 +248,19 @@
                     <p class="mt-4 text-gray-600 font-serif">A short burst of focused prep.</p>
                     <ul class="mt-6 space-y-3 text-gray-600 font-serif text-sm">
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
                             Unlimited DET Practice Questions
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
-                            3 Mock Exams
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
+                            1 Mock Exams
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
                             1 Expert Feedback Session
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
                             Detailed Analytics
                         </li>
                     </ul>
@@ -283,25 +283,145 @@
                     <p class="mt-4 text-gray-600 font-serif">Full access for ultimate success.</p>
                     <ul class="mt-6 space-y-3 text-gray-600 font-serif text-sm">
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
                             Unlimited DET Practice Questions
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
-                            Unlimited Mock Exams
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
+                            5 Mock Exams
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
                             Unlimited Expert Feedback
                         </li>
                         <li class="flex items-center">
-                            <x-heroicon-o-check class="w-5 h-5 text-green-500 mr-2" />
+                            <x-heroicon-o-check-circle class="w-5 h-5 text-green-500 mr-2" />
                             Advanced Analytics
                         </li>
                     </ul>
                     <a href="#" class="mt-6 inline-block w-full text-center bg-amber-600 text-white px-4 py-2 rounded-lg font-sans font-semibold hover:bg-amber-700 transition-colors duration-200 shadow-md">
                         Go Monthly
                     </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="px-4 sm:px-12 lg:px-20 py-20">
+        <div>
+            <!-- Section Header -->
+            <div class="text-center mb-16"
+                x-data="{ isVisible: false }"
+                x-init="$nextTick(() => isVisible = true)"
+                x-show="isVisible"
+                x-transition:enter="transition ease-out duration-700"
+                x-transition:enter-start="opacity-0 -translate-y-10"
+                x-transition:enter-end="opacity-100 translate-y-0">
+                <h2 class="text-3xl md:text-4xl font-sans font-bold text-gray-800">
+                    What Our <span class="text-amber-600">Students Say</span>
+                </h2>
+                <p class="mt-4 text-lg text-gray-600 font-serif max-w-2xl mx-auto">
+                    Real feedback from students who improved their DET scores with Score Up.
+                </p>
+            </div>
+
+            <!-- Reviews Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Review Card 1 -->
+                <div x-data="{ isVisible: false }"
+                    x-init="$nextTick(() => isVisible = true)"
+                    x-show="isVisible"
+                    x-transition:enter="transition ease-out duration-700 delay-100"
+                    x-transition:enter-start="opacity-0 translate-y-10"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    class="bg-amber-100 rounded-xl p-6 flex flex-col items-start transform transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center text-amber-800 font-bold text-xl mr-4 shrink-0">
+                            S
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-sans font-semibold text-gray-800">Sarah K.</h3>
+                            <div class="flex text-amber-500 text-sm">
+                                ★★★★★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 font-serif text-base leading-relaxed">
+                        "Score Up helped me boost my DET score by 20 points in just 3 weeks! The practice tests feel exactly like the real thing."
+                    </p>
+                </div>
+
+                <!-- Review Card 2 -->
+                <div x-data="{ isVisible: false }"
+                    x-init="$nextTick(() => isVisible = true)"
+                    x-show="isVisible"
+                    x-transition:enter="transition ease-out duration-700 delay-200"
+                    x-transition:enter-start="opacity-0 translate-y-10"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    class="bg-amber-100 rounded-xl p-6 flex flex-col items-start transform transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center text-amber-800 font-bold text-xl mr-4 shrink-0">
+                            A
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-sans font-semibold text-gray-800">Ahmed R.</h3>
+                            <div class="flex text-amber-500 text-sm">
+                                ★★★★☆
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 font-serif text-base leading-relaxed">
+                        "The app's interface is super clean, and the instant feedback feature really helped me improve my weak areas."
+                    </p>
+                </div>
+
+                <!-- Review Card 3 -->
+                <div x-data="{ isVisible: false }"
+                    x-init="$nextTick(() => isVisible = true)"
+                    x-show="isVisible"
+                    x-transition:enter="transition ease-out duration-700 delay-300"
+                    x-transition:enter-start="opacity-0 translate-y-10"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    class="bg-amber-100 rounded-xl p-6 flex flex-col items-start transform transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center text-amber-800 font-bold text-xl mr-4 shrink-0">
+                            M
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-sans font-semibold text-gray-800">Maria L.</h3>
+                            <div class="flex text-amber-500 text-sm">
+                                ★★★★★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 font-serif text-base leading-relaxed">
+                        "I love how Score Up tracks my progress. It made preparing for DET so much less stressful!"
+                    </p>
+                </div>
+
+                <!-- Review Card 4 -->
+                <div x-data="{ isVisible: false }"
+                    x-init="$nextTick(() => isVisible = true)"
+                    x-show="isVisible"
+                    x-transition:enter="transition ease-out duration-700 delay-400"
+                    x-transition:enter-start="opacity-0 translate-y-10"
+                    x-transition:enter-end="opacity-100 translate-y-0"
+                    class="bg-amber-100 rounded-xl p-6 flex flex-col items-start transform transition-transform duration-300 hover:shadow-lg hover:-translate-y-1">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-amber-200 rounded-full flex items-center justify-center text-amber-800 font-bold text-xl mr-4 shrink-0">
+                            J
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-sans font-semibold text-gray-800">James P.</h3>
+                            <div class="flex text-amber-500 text-sm">
+                                ★★★★★
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 font-serif text-base leading-relaxed">
+                        "The expert feedback was a game-changer. I finally understood my mistakes and aced the speaking section!"
+                    </p>
                 </div>
             </div>
         </div>

@@ -1,8 +1,8 @@
 <header 
     x-data="{ scrolled: false }" 
     x-init="window.addEventListener('scroll', () => { scrolled = window.scrollY > 40 })"
-    :class="scrolled ? 'py-4 shadow drop-shadow' : 'py-6 sm:py-12'"
-    class="flex items-center justify-between px-4 sm:px-12 lg:px-20 fixed w-full top-0 z-50 backdrop-blur-3xl transition-all duration-300"
+    :class="scrolled ? 'py-4 shadow bg-amber-50' : 'py-6 sm:py-12'"
+    class="flex items-center justify-between px-4 sm:px-12 lg:px-20 fixed w-full top-0 z-50 transition-all duration-300"
 >
     <a href="{{ route('home') }}">
         <h1 class="text-2xl font-bold text-slate-700">Logo</h1>
@@ -72,10 +72,41 @@
 
     <div class="lg:hidden flex gap-4 font-medium">
         @guest
-        <a href="{{ route('login') }}" class="text-slate-600 hover:text-slate-800 px-4 py-1 border border-amber-400 hover:bg-amber-100 hover:border-amber-500 rounded-lg transition-all duration-300">Login</a>
+        <a href="{{ route('login') }}" class="text-slate-600 hover:text-slate-800 px-4 py-1 border border-amber-400 bg-amber-50 hover:bg-amber-100 hover:border-amber-500 rounded-lg transition-all duration-300">Login</a>
+        @else
+        <a href="{{ route('dashboard') }}" class="text-slate-600 hover:text-slate-800 px-4 py-1 border border-amber-400 bg-amber-50 hover:bg-amber-100 hover:border-amber-500 rounded-lg transition-all duration-300">Open app</a>
         @endguest
-        <div class="p-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg">
-            <x-heroicon-s-bars-3 class="w-7 h-7" />
+        <div x-data="{ open: false }" class="relative">
+            <!-- Trigger Button -->
+            <button 
+                @click="open = !open"
+                class="p-1 bg-amber-500 hover:bg-amber-600 text-white rounded-lg focus:outline-none"
+                :class="{ 'bg-amber-600': open }"
+            >
+                <x-heroicon-s-bars-3 x-show="!open" class="w-7 h-7" />
+                <x-heroicon-s-x-mark x-cloak x-show="open" class="w-7 h-7" />
+            </button>
+
+            <!-- Dropdown Menu -->
+            <div 
+                x-show="open"
+                x-cloak 
+                @click.outside="open = false"
+                x-transition:enter="transition ease-out duration-200"
+                x-transition:enter-start="opacity-0 transform scale-95 translate-y-[-10px]"
+                x-transition:enter-end="opacity-100 transform scale-100 translate-y-0"
+                x-transition:leave="transition ease-in duration-150"
+                x-transition:leave-start="opacity-100 transform scale-100 translate-y-0"
+                x-transition:leave-end="opacity-0 transform scale-95 translate-y-[-10px]"
+                class="absolute top-10 right-0 mt-2 w-36 text-center rounded-lg shadow-lg z-10 bg-amber-100 border border-amber-400"
+            >
+                <div class="py-1">
+                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-100">Home</a>
+                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-100">Features</a>
+                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-100">Pricing</a>
+                    <a href="#" class="block px-4 py-2 text-gray-800 hover:bg-amber-100">Resources</a>
+                </div>
+            </div>
         </div>
     </div>
 </header>
