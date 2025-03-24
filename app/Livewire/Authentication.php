@@ -120,7 +120,7 @@ class Authentication extends Component
 
         $user = User::where('email', $socialUser->getEmail())->first();
 
-        if ($user) {
+        if ($user && $user->provider === $provider && $user->provider_id === $socialUser->getId()) {
             Auth::login($user);
             return redirect()->route('home');
         }
