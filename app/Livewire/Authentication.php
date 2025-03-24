@@ -120,9 +120,9 @@ class Authentication extends Component
 
         $user = User::where('email', $socialUser->getEmail())->first();
 
-        if ($user && !$user->provider) {
-            session()->flash('error', 'This email is already registered but has not connected a login method.');
-            return redirect()->route('login');
+        if ($user) {
+            Auth::login($user);
+            return redirect()->route('home');
         }
 
         if (!$user) {
@@ -133,10 +133,13 @@ class Authentication extends Component
                 'provider' => $provider,
                 'provider_id' => $socialUser->getId(),
             ]);
+
+            Auth::login($user);
+            return redirect()->route('home');
         }
 
-        Auth::login($user);
-        return redirect()->route('home');
+        session()->flash('error', 'This email is already registered, try another one.');
+        return redirect()->route('login');
     }
 
 
