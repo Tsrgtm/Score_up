@@ -3,8 +3,45 @@
 @source "../views";
 @source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
 
-@theme {
-    --font-sans: 'Figtree', sans-serif;
-    --font-serif: 'Merriweather', serif;
-    --font-mono: 'Fira Code', monospace;
+.hero-gradient {
+    background: linear-gradient(135deg, #3b82f6 0%, #6366f1 100%);
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.pricing-card:hover {
+    transform: scale(1.03);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.testimonial-card {
+    background: linear-gradient(145deg, #ffffff 0%, #f9fafb 100%);
+}
+
+.nav-link>span {
+    @apply w-0
+}
+
+.nav-link.active>span {
+    @apply w-full
+}
+
+.nav-link.active {
+    @apply text-gray-900 font-semibold;
+}
+
+input:not([type="checkbox"]):focus,
+textarea:focus,
+select:focus {
+    @apply outline-none ring-2 ring-blue-500 border-0;
+}
+
+input,
+textarea,
+select,
+button {
+    @apply outline-none transition duration-200 ease-in-out;
 }

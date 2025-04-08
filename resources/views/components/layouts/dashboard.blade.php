@@ -12,108 +12,152 @@
         @vite(['resources/css/app.css', 'resources/js/app.js'])
         @livewireStyles
     </head>
-    <body class="min-h-screen flex">
+    <body class="min-h-screen flex bg-gray-100">
         @livewire('show-alerts')
         <!-- Sidebar -->
-        <aside class="w-64 bg-amber-100/90 backdrop-blur-3xl border-r border-gray-200  p-4 flex flex-col justify-between max-h-screen h-full fixed">
+        <aside class="max-w-64 w-full bg-white border-r border-gray-200  flex flex-col justify-between max-h-screen h-full fixed -left-full lg:left-0 z-99 transition-left duration-300 ease-in-out">
             <div>
-                <div class="flex gap-3">
-                    <h1 class="text-2xl font-bold text-slate-700">Logo</h1>
+                <div class="p-4 flex items-center">
+                    <div
+                        class="w-10 h-10 rounded-md bg-blue-600 flex items-center justify-center"
+                    >
+                        <i class="fas fa-chart-line text-white text-xl"></i>
+                    </div>
+                    <span class="logo-text ml-3 text-xl font-bold text-gray-800"
+                        >Score Up</span
+                    >
                 </div>
 
-                <div class="mt-8">
-                    <ul class="space-y-2 text-gray-800 text-lg">
-                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md
-                            {{ request()->routeIs('dashboard') ? 'bg-amber-200 border-amber-400 text-amber-600 border border-amber-400' : 'hover:bg-gray-200 hover:border hover:border-gray-400 hover:text-gray-600 ' }}
-                            transition-all duration-300">
+                <div class="flex-1 overflow-y-auto py-4">
+                    <nav>
+                        <div class="px-2">
+                        <a href="{{ route('dashboard') }}"
+                            class="nav-item mb-1 flex items-center px-4 py-3 rounded-lg hover:bg-blue-100 hover:text-blue-600 cursor-pointer {{ request()->routeIs('dashboard') ? 'bg-blue-100 text-blue-600' : 'text-gray-700' }}"
+                        >
                             <x-heroicon-o-squares-2x2 class="w-5 h-5" />
-                            Dashboard
-                        </a></li>
-                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-200 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
+                            <span class="sidebar-text ml-3">Dashboard</span>
+                        </a>
+                        <div
+                            class="nav-item mb-1 flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-blue-100 hover:text-blue-600 cursor-pointer"
+                        >
                             <x-heroicon-o-book-open class="w-5 h-5" />
-                            Practice
-                        </a></li>
-                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-200 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
+                            <span class="sidebar-text ml-3">Practice Tests</span>
+                        </div>
+                        <div
+                            class="nav-item mb-1 flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-blue-100 hover:text-blue-600 cursor-pointer"
+                        >
+                            <x-heroicon-o-clipboard-document-check class="w-5 h-5" />
+                            <span class="sidebar-text ml-3">Mock Tests</span>
+                        </div>
+                        <div
+                            class="nav-item mb-1 flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-blue-100 hover:text-blue-600 cursor-pointer"
+                        >
                             <x-heroicon-o-chart-bar class="w-5 h-5" />
-                            Progress
-                        </a></li>
-                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-200 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
-                            <x-heroicon-o-academic-cap class="w-5 h-5" />
-                            Lessions
-                        </a></li>
-                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-200 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
-                            <x-heroicon-o-clipboard class="w-5 h-5" />
-                            Mock Tests
-                        </a></li>
-                        <li><a href="#" class="flex items-center gap-3 py-2 px-4 rounded-md border border-transparent hover:bg-amber-200 hover:border-amber-400 hover:text-amber-600 transition-all duration-300">
-                            <x-heroicon-o-folder-open class="w-5 h-5" />
-                            Resources
-                        </a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="mt-8 bg-amber-200/80 p-4 flex flex-col gap-2 border border-amber-400 rounded-lg text-center">
-                <h2 class="text-lg font-bold">#1 Practice platform</h2>
-                <p class="text-md text-gray-600">Enjoy unlimited practice to boost your skills</p>
-                <a href="{{ route('register') }}" class="text-slate-600 mt-2 border border-amber-500 hover:bg-amber-600 px-4 py-2 bg-amber-500 hover:bg-amber-600 text-white font-medium rounded-lg transition-all duration-300">
-                    <i class="fa-solid fa-crown mr-2"></i>
-                    Upgrade Now
-                </a>
+                            <span class="sidebar-text ml-3">Progress</span>
+                        </div>
+                        <div
+                            class="nav-item mb-1 flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-blue-100 hover:text-blue-600 cursor-pointer"
+                        >
+                            <x-heroicon-o-chat-bubble-bottom-center-text class="w-5 h-5" />
+                            <span class="sidebar-text ml-3">Feedback</span>
+                        </div>
+                        <div
+                            class="nav-item mb-1 flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-blue-100 hover:text-blue-600 cursor-pointer"
+                        >
+                            <x-heroicon-o-cog class="w-5 h-5" />
+                            <span class="sidebar-text ml-3">Settings</span>
+                        </div>
+                        <div
+                            class="nav-item mb-1 flex items-center px-4 py-3 text-gray-700 rounded-lg hover:bg-blue-100 hover:text-blue-600 cursor-pointer"
+                        >
+                            <x-heroicon-o-user class="w-5 h-5" />
+                            <span class="sidebar-text ml-3">Profile</span>
 
+                        </div>
+
+                        <div class="px-4 mt-8">
+                        <div
+                            class="text-xs font-semibold text-gray-500 uppercase tracking-wider mb-2 sidebar-text"
+                        >
+                            Subscription
+                        </div>
+                        <div class="bg-blue-50 rounded-lg p-4">
+                            <div class="flex items-center justify-between mb-2">
+                                <span class="text-sm font-medium text-gray-700 sidebar-text"
+                                    >Premium Plan</span
+                                >
+                                <span
+                                    class="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded"
+                                    >Active</span
+                                >
+                            </div>
+                            <ul class="space-y-1 py-2">
+                                <li class="text-xs text-gray-500 mb-1 sidebar-text">
+                                    <span class="font-medium">Practice Questions:</span> Unlimited
+                                </li>
+                                <li class="text-xs text-gray-500 mb-1 sidebar-text">
+                                    <span class="font-medium">Mock Tests:</span> 5
+                                </li>
+                                <li class="text-xs text-gray-500 mb-1 sidebar-text">
+                                    <span class="font-medium">Expires On:</span> 15 Aug 2025
+                                </li>
+                            </ul>
+                            <button
+                            class="w-full bg-blue-600 hover:bg-blue-700 text-white text-sm py-2 px-4 rounded-lg transition"
+                            >
+                            <span class="sidebar-text">Manage</span>
+                            </button>
+                        </div>
+                        </div>
+                    </nav>
+                </div>
+
+            </div>
+
+            <div class="p-4 border-t border-gray-200">
+                <div class="flex items-center">
+                    <x-avatar search="{{ auth()->user()->name }}" class="w-10 h-10 border border-gray-300 rounded-full shadow-sm" />
+                    <div class="ml-3 sidebar-text">
+                        <div class="text-sm font-medium text-gray-800">{{ auth()->user()->name }}</div>
+                        <div class="text-xs text-gray-500">{{ encryptEmail(auth()->user()->email) }}</div>
+                    </div>
+                    <button
+                    class="ml-auto text-gray-400 hover:text-gray-600 sidebar-text"
+                    >
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit">
+                            <x-heroicon-o-arrow-right-on-rectangle class="w-6 h-6"/>
+                        </button>
+                    </form>
+                    </button>
+                </div>
             </div>
         </aside>
 
+        <div id="overlay" class="bg-gray-900 opacity-50 fixed inset-0 z-50 hidden w-screen h-screen" onclick="document.querySelector('aside').classList.remove('left-0'), document.querySelector('#overlay').classList.add('hidden'), document.querySelector('body').classList.remove('overflow-hidden')"></div>
+
         <!-- Main Content -->
-        <main class="flex-1 bg-gray-100 ml-64">
+        <main class="flex-1 bg-gray-100 lg:ml-64">
             <!-- Header -->
-            <header class="px-6 py-4 mb-4 flex items-center justify-between sticky top-0 backdrop-blur-3xl z-50">
+            <header class="px-4 sm:px-6 py-4 mb-4 flex items-center justify-between sticky top-0 backdrop-blur-3xl bg-white border-b border-gray-200 z-10">
+                <button onclick="document.querySelector('aside').classList.add('left-0'), document.querySelector('#overlay').classList.remove('hidden'), document.querySelector('body').classList.add('overflow-hidden')" type="button" class="inline-flex lg:hidden items-center justify-center p-1.5 rounded-full text-gray-200 bg-blue-600 hover:bg-blue-700" aria-controls="mobile-menu" aria-expanded="false">
+                    <span class="sr-only">Open side menu</span>
+                    <x-heroicon-s-bars-3 class="w-7 h-7" />
+                </button>
+
                 <h1 class="text-xl text-gray-600 font-semibold">@yield('header-title', 'Dashboard')</h1>
-                <x-dropdown class="relative">
-                    <x-slot name="trigger">
-                        <button class="text-slate-600 flex items-center hover:bg-gray-200 rounded-md shadow-none transition-all duration-300 group">
-                            <x-avatar search="{{ auth()->user()->name }}" class="w-8 h-8 border border-gray-300 rounded-md" />
-                            <div class="flex items-center gap-2 py-2 px-1 group-hover:border-gray-300 max-h-8">
-                                <p class="font-medium text-gray-600 turnicate">{{ auth()->user()->name }}</p>
-                                <x-heroicon-o-chevron-down class="w-4 h-4" />
-                            </div>
-                        </button>
-                    </x-slot>
-                    <div x-cloak class="absolute right-0 mt-2 w-48 bg-amber-100 border border-gray-200 rounded-lg overflow-hidden z-50">
-                        <div class="p-2">
-                            <div class="flex items-center gap-2">
-                                <x-avatar search="{{ auth()->user()->name }}" class="w-10 h-10 border border-gray-200 rounded-full" />
-                                <div>
-                                    <p class="font-medium text-gray-700 turnicate">{{ auth()->user()->name }}</p>
-                                    <p class="text-xs text-gray-600 turnicate">{{ encryptEmail(auth()->user()->email) }}</p>
-                                </div>
-                            </div>
+
+
+                <div class="flex items-center gap-4">
+                    <div class="relative bg-blue-100 p-2 rounded-full flex items-center justify-center cursor-pointer">
+                        <x-heroicon-o-bell class="w-6 h-6 text-blue-600" />
+                        <div class="px-1 py-0.5 bg-blue-500 min-w-5 rounded-full text-center text-white text-xs absolute -top-2 -end-1 translate-x-1/4 text-nowrap">
+                            <div class="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-blue-200 w-full h-full"></div>
+                            3
                         </div>
-                        <hr class="border-gray-300">
-                        <a href="{{ route('home') }}" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
-                            <x-heroicon-o-globe-alt class="w-5 h-5" />
-                            Go to site
-                        </a>
-                        <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
-                            <x-heroicon-o-user class="w-5 h-5" />
-                            My profile
-                        </a>
-                        <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
-                            <x-heroicon-o-credit-card class="w-5 h-5" />
-                            Subscriptions
-                        </a>
-                        <a href="#" class="flex items-center gap-3 px-4 py-2 text-gray-700 hover:bg-amber-200 hover:text-amber-600 transition-all duration-300">
-                            <x-heroicon-o-cog class="w-5 h-5" />
-                            Settings
-                        </a>
-                        <hr class="border-gray-300">
-                        <form action="{{ route('logout') }}" method="POST" class="p-2">
-                            @csrf
-                            <button type="submit" class="flex items-center justify-center rounded-lg px-4 py-2 w-full bg-red-500 hover:bg-red-600 text-gray-100 transition-all duration-300 cursor-pointer">
-                                Logout
-                            </button>
-                        </form>
                     </div>
-                </x-dropdown>
+                </div>
             </header>
 
             @yield('content')

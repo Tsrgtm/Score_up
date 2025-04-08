@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>@yield('title' , 'Score Up')</title>
+        <title>@yield('auth-title' , 'Score Up')</title>
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -16,12 +16,9 @@
     </head>
     <body class="font-sans antialiased">
         @livewire('show-alerts')
-        @include('components.layouts.partials.header')
-        <main>
+        <main class="flex flex-col items-center justify-center min-h-screen hero-gradient px-4 sm:px-10 py-14">
             @yield('content')
         </main>
-
-        @include('components.layouts.partials.footer')
         @livewireScripts
     </body>
 </html>

@@ -1,6 +1,4 @@
-@extends('auth.form-template')
-
-@section('title', 'Login')
+@extends('components.layouts.guest')
 
 @section('content')
     @livewire('authentication')
