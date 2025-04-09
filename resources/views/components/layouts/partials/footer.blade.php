@@ -37,7 +37,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-between">
+            <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-center md:justify-between">
                 <p class="text-base text-gray-400">
                     &copy; 2023 Score Up. All rights reserved.
                 </p>
