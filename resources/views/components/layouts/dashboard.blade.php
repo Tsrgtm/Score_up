@@ -140,7 +140,7 @@
         <!-- Main Content -->
         <main class="flex-1 bg-gray-100 lg:ml-64">
             <!-- Header -->
-            <header class="px-4 sm:px-6 py-4 mb-4 flex items-center justify-between sticky top-0 backdrop-blur-3xl bg-white border-b border-gray-200 z-10">
+            <header class="px-4 sm:px-6 py-4 mb-4 flex items-center justify-between sticky top-0 backdrop-blur-3xl bg-white border-b border-gray-200 z-10 overflow-hidden">
                 <button onclick="document.querySelector('aside').classList.add('left-0'), document.querySelector('#overlay').classList.remove('hidden'), document.querySelector('body').classList.add('overflow-hidden')" type="button" class="inline-flex lg:hidden items-center justify-center p-1.5 rounded-full text-gray-200 bg-blue-600 hover:bg-blue-700" aria-controls="mobile-menu" aria-expanded="false">
                     <span class="sr-only">Open side menu</span>
                     <x-heroicon-s-bars-3 class="w-7 h-7" />
