@@ -114,23 +114,19 @@
 
             </div>
 
-            <div class="p-4 border-t border-gray-200">
+            <div class="px-4 py-2 sticky bottom-0 bg-white border-t border-gray-200">
                 <div class="flex items-center">
                     <x-avatar search="{{ auth()->user()->name }}" class="w-10 h-10 border border-gray-300 rounded-full shadow-sm" />
                     <div class="ml-3 sidebar-text">
                         <div class="text-sm font-medium text-gray-800">{{ auth()->user()->name }}</div>
                         <div class="text-xs text-gray-500">{{ encryptEmail(auth()->user()->email) }}</div>
                     </div>
-                    <button
-                    class="ml-auto text-gray-400 hover:text-gray-600 sidebar-text"
-                    >
-                    <form action="{{ route('logout') }}" method="POST">
+                    <form action="{{ route('logout') }}" method="POST" class="ml-auto">
                         @csrf
-                        <button type="submit">
+                        <button type="submit" class="cursor-pointer text-gray-500 hover:text-gray-600 transition-all duration-200 flex items-center justify-center">
                             <x-heroicon-o-arrow-right-on-rectangle class="w-6 h-6"/>
                         </button>
                     </form>
-                    </button>
                 </div>
             </div>
         </aside>
@@ -152,10 +148,7 @@
                 <div class="flex items-center gap-4">
                     <div class="relative bg-blue-100 p-2 rounded-full flex items-center justify-center cursor-pointer">
                         <x-heroicon-o-bell class="w-6 h-6 text-blue-600" />
-                        <div class="px-1 py-0.5 bg-blue-500 min-w-5 rounded-full text-center text-white text-xs absolute -top-2 -end-1 translate-x-1/4 text-nowrap">
-                            <div class="absolute top-0 start-0 rounded-full -z-10 animate-ping bg-blue-200 w-full h-full"></div>
-                            3
-                        </div>
+                        <div class="absolute top-0 right-0 w-3 h-3 bg-red-600 rounded-full border border-white"></div>
                     </div>
                 </div>
             </header>

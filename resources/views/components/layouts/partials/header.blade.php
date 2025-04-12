@@ -25,9 +25,11 @@
                         Pricing
                         <span class="h-0.5 w-full bg-blue-500 rounded transition-width duration-300"></span>
                     </a>
-                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex flex-col justify-center px-1 pt-1 text-sm font-medium group">
-                        Resources
-                        <span class="h-0.5 w-0 group-hover:w-full bg-blue-500 rounded transition-width duration-300"></span>
+                    <a href="{{ route('blog') }}" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex flex-col justify-center px-1 pt-1 text-sm font-medium group">
+                        Blog
+                        @if (request()->routeIs('blog'))
+                            <span class="h-0.5 w-full bg-blue-500 rounded transition-width duration-300"></span>
+                        @endif
                     </a>                
                 </div>
             </div>

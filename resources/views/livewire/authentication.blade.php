@@ -65,6 +65,7 @@
                             placeholder="••••••••">
                         <i @click="showPassword = !showPassword" :class="showPassword ? 'fas fa-eye' : 'fas fa-eye-slash'" class="absolute right-3 top-3 text-gray-400"></i>
                     </div>
+                    @error('password') <span class="text-red-500 mt-1">{{ $message }}</span> @enderror
                 </div>
 
                 @if ($action == 'login')

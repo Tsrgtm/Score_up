@@ -24,8 +24,11 @@
         <a href="#pricing" class="border-transparent text-gray-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors duration-200 mobile-nav-link">
             Pricing
         </a>
-        <a href="javascript:void(0);" class="border-transparent text-gray-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors duration-200 mobile-nav-link">
-            Resources
+        <a href="{{ route('blog') }}" 
+            class="border-transparent text-gray-500 block pl-3 pr-4 py-2 border-l-4 text-base font-medium transition-colors duration-200 @if (request()->routeIs('blog'))
+                mobile-nav-link mobile-active
+            @endif">
+            Blog
         </a>
         <div class="border-t border-gray-200">
             <div class="mt-3 space-y-2">

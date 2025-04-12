@@ -43,6 +43,15 @@
                         </div>
 
                         <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700">Subject</label>
+                            <div class="mt-1">
+                                <input type="text" id="subject" name="subject" 
+                                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition duration-200"
+                                        required>
+                            </div>
+                        </div>
+
+                        <div>
                             <label for="message" class="block text-sm font-medium text-gray-700">Message</label>
                             <div class="mt-1">
                                 <textarea id="message" name="message" rows="5" 
@@ -79,19 +88,19 @@
                                 <div>
                                     <p class="font-semibold text-lg">Email Support</p>
                                     <p class="text-white/80 mt-1">
-                                        support@scoreup.com<br>
-                                        info@scoreup.com
+                                        {{'support@' . config('app.domain.name')}}<br>
+                                        {{'info@' . config('app.domain.name')}}
                                     </p>
                                 </div>
                             </div>
 
                             <div class="flex items-start">
-                                <i class="fas fa-phone-alt text-white mt-1 mr-3 text-lg"></i>
+                                <i class="fas fa-phone text-white mt-1 mr-3 text-lg"></i>
                                 <div>
                                     <p class="font-semibold text-lg">Phone Support</p>
                                     <p class="text-white/80 mt-1">
-                                        +977-1-1234567<br>
-                                        +977-9801234567
+                                        +977-97XXXXXXXX<br>
+                                        +977-98XXXXXXXX
                                     </p>
                                 </div>
                             </div>
