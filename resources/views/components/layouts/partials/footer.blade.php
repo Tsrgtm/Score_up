@@ -38,7 +38,11 @@
                 </div>
             </div>
             <div class="mt-12 border-t border-gray-700 pt-8 flex flex-col md:flex-row justify-center md:justify-between">
+<<<<<<< HEAD
                 <p class="text-base text-gray-400 text-center">
+=======
+                <p class="text-base text-gray-400">
+>>>>>>> fcd1e60a1ee12a0f32de71467bf283def02482c4
                     &copy; 2023 Score Up. All rights reserved.
                 </p>
                 <div class="mt-4 md:mt-0 flex space-x-6">

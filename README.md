@@ -19,7 +19,7 @@ The project is hosted at: [tsrgtm.tech](https://tsrgtm.tech)
 
 ## Technologies Used  
 - **Frontend:** HTML, CSS, JavaScript  
-- **Backend:** PHP, Laravel (if applicable)  
+- **Backend:** PHP, Laravel
 - **Database:** MySQL  
 - **Hosting:** Deployed on tsrgtm.tech  
 
