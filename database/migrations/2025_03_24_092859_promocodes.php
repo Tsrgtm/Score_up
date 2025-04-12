@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('promocodes', function (Blueprint $table) {
             $table->id();
             $table->string('code')->unique();
-            $table->integer('discount_percentage');
+            $table->integer('discount_percentage')->nullable();
+            $table->integer('discount_amount')->nullable();
+            $table->string('discount_type')->default('percentage'); // percentage or amount
             $table->integer('max_usage_count');
             $table->integer('usage_count')->default(0);
             $table->timestamp('valid_from');
@@ -28,6 +30,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('promocodes');
     }
 };

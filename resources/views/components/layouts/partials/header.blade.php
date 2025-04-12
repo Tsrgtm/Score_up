@@ -101,30 +101,37 @@
                     <a href="{{ route('register') }}" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get Started</a>
                 @endguest
             </div>
-            <div class="-mr-2 flex items-center gap-4 lg:hidden">
-                <a href="{{ route('register') }}" class="hidden sm:flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">Get Started</a>
-                <button type="button" class="inline-flex items-center justify-center p-1.5 rounded-full text-gray-200 bg-blue-600 hover:bg-blue-700" aria-controls="mobile-menu" aria-expanded="false">
+            <div x-data="{ open: false }" class="flex items-center gap-4 lg:hidden">
+                <a href="{{ route('register') }}" class="hidden sm:flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500">
+                    Get Started
+                </a>
+                
+                <!-- Menu Toggle Button -->
+                <button 
+                    @click="open = !open" 
+                    type="button" 
+                    class="relative inline-flex items-center justify-center p-1.5 rounded-full text-gray-200 bg-blue-600 hover:bg-blue-700 transition-colors duration-200"
+                    aria-controls="mobile-menu" 
+                    aria-expanded="false"
+                >
                     <span class="sr-only">Open main menu</span>
-                    <x-heroicon-s-bars-3 class="w-7 h-7" />
+                    <!-- Hamburger Icon -->
+                    <x-heroicon-s-bars-3 
+                        class="w-7 h-7 transition-opacity duration-300" 
+                        x-show="!open"
+                        x-bind:class="open ? 'opacity-0' : 'opacity-100'"
+                    />
+                    <!-- Close Icon -->
+                    <x-heroicon-s-x-mark 
+                        class="w-7 h-7 transition-opacity duration-300" 
+                        x-show="open"
+                        x-cloak
+                        x-bind:class="open ? 'opacity-100' : 'opacity-0'"
+                    />
                 </button>
-            </div>
-        </div>
-    </div>
 
-    <!-- Mobile menu -->
-    <div class="hidden" id="mobile-menu">
-        <div class="pt-2 pb-3 space-y-1">
-            <a href="#features" class="bg-blue-50 border-blue-500 text-blue-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">
-                Features
-            </a>
-            <a href="#how-it-works" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">How It Works</a>
-            <a href="#pricing" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Pricing</a>
-            <a href="#testimonials" class="border-transparent text-gray-500 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-700 block pl-3 pr-4 py-2 border-l-4 text-base font-medium">Testimonials</a>
-            <div class="pt-4 pb-3 border-t border-gray-200">
-                <div class="mt-3 space-y-1">
-                    <a href="/login" class="block px-4 py-2 text-base font-medium text-gray-500 hover:text-gray-800 hover:bg-gray-100">Sign In</a>
-                    <a href="#pricing" class="block w-full text-center px-4 py-2 border border-transparent text-base font-medium rounded-md shadow-sm text-white bg-blue-600 hover:bg-blue-700">Get Started</a>
-                </div>
+                <!-- Mobile Menu -->
+                @include('components.dropdown.mobile-menu')
             </div>
         </div>
     </div>

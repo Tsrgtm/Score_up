@@ -132,6 +132,7 @@ class Authentication extends Component
                 'password' => Hash::make(uniqid()),
                 'provider' => $provider,
                 'provider_id' => $socialUser->getId(),
+                'provider_avatar' => $socialUser->getAvatar(),
             ]);
 
             Auth::login($user);

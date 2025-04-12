@@ -6,9 +6,17 @@ Route::get('/', function () {
     return view('index');
 })->name('home');
 
-Route::get('/dashboard', function () {
-    return view('components.layouts.dashboard');
-})->name('dashboard');
+Route::get('/blog', function () {
+    return view('pages.blog');
+})->name('blog');
+
+Route::get('/contact', function () {
+    return view('pages.contact');
+})->name('contact');
+
+Route::get('/privacy-policy', function () {
+    return view('pages.privacy');
+})->name('privacy');
 
 
 require __DIR__.'/auth.php';
